@@ -1,0 +1,151 @@
+<ng-template class="template" #content let-c="close" let-d="dismiss">
+  <form [formGroup]="myForm" (ngSubmit)="guardar(myForm)" errorTailor>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Nuevo Paciente</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+    </div>
+    <ng-template let-error let-text="text" #Error>
+      <!-- {{error|json}}{{text}} -->
+
+      <div *ngIf="error?.minlength">
+        <i> <b>Error:</b>No comples con los caracteres minomos que son
+          ({{error?.minlength?.requiredLength}}),ingresaste
+          solo:({{error?.minlength?.actualLength}})</i>
+      </div>
+    </ng-template>
+    <div class="modal-body" mat-icon>
+      <div class="cont-usuario">
+        <input class="controls" formControlName="nomespecie" type="text" placeholder="Nombre de mascota"
+          [controlErrorsTpl]="Error">
+      </div>
+
+      <div class="cont-nombre">
+        <input class="controls" formControlName="especie" type="text"
+          placeholder="Tipo de especie, ejemplo: Perro, Gato, etcs" [controlErrorsTpl]="Error">
+      </div>
+
+      <br>
+      <div class="cont-nombre">
+        <input class="controls" formControlName="raza" type="text" placeholder="Raza de la especie, ejemplo: labrador"
+          [controlErrorsTpl]="Error">
+      </div>
+
+      <br>
+      <div class="cont-nombre">
+        <label for="archivo" class="label">Fecha de nacimiento de la mascota</label>
+        <input class="controls" formControlName="fechanaci" type="date" [controlErrorsTpl]="Error">
+      </div>
+
+      <br>
+
+      <div class="cont-nombre">
+        <input class="controls" formControlName="nomdue" type="text" placeholder="Nombre del dueño"
+          [controlErrorsTpl]="Error">
+      </div>
+      <br>
+      <div class="cont-nombre">
+        <input class="controls" formControlName="tipoid" type="text" placeholder="Tipo de identificación"
+          [controlErrorsTpl]="Error">
+      </div>
+      <br>
+      <div class="cont-nombre">
+        <input class="controls" formControlName="iddue" type="number" placeholder="Numero de identificación"
+          [controlErrorsTpl]="Error">
+      </div>
+      <br>
+      <div class="cont-nombre">
+        <input class="controls" formControlName="ciudad" type="text" placeholder="Ciudad de recidencia"
+          [controlErrorsTpl]="Error">
+      </div>
+      <br>
+      <div class="cont-nombre">
+        <input class="controls" formControlName="direccion" type="text" placeholder="Direcció"
+          [controlErrorsTpl]="Error">
+      </div>
+      <br>
+      <div class="cont-nombre">
+        <input class="controls" formControlName="telefono" type="number" placeholder="Telefono"
+          [controlErrorsTpl]="Error">
+      </div>
+      <br>
+      <div class="cont-nombre">
+        <label for="archivo" class="label">Fecha de registro</label>
+        <input class="controls" formControlName="fecharegis" type="date" [controlErrorsTpl]="Error">
+      </div>
+      <br>
+
+
+    </div>
+
+    <div class="modal-footer">
+      <button title="Guardar y agregar" (click)="refresh()" type="submit" class="save" (click)="errorbutton()"
+        [disabled]="myForm.invalid">
+        <mat-icon id="icon-button">save add</mat-icon>
+      </button>
+
+      <button title="Guardar y salir" (click)="refresh()" type="submit" class="save-exit" (click)="d('Cross click')"
+        (click)="errorbutton()" [disabled]="myForm.invalid">
+        <mat-icon id="icon-button">save subdirectory_arrow_right</mat-icon>
+      </button>
+
+      <button class="close" type="button" (click)="d('Cross click')">
+        Cancelar
+      </button>
+
+    </div>
+  </form>
+</ng-template>
+<h1 id="titulo">Administrador de pacientes</h1><br>
+<input class="from_control" id="filter" type="text" placeholder="Buscar..." [(ngModel)]="filterPost" name="filterPosts">
+<button class="lanzar" mat-icon (click)="open(content)" mat-list-item>
+  Nuevo
+</button>
+<button title="Exportar exel" class="export" (click)="exportexcel()">Exportar</button>
+<div>
+  <div class="table-responsive-md">
+    <table id="table" class="table">
+      <thead>
+        <tr>
+          <th style="text-align:center">Id</th>
+          <th style=" text-align:center">Nombre Especie</th>
+          <th style="text-align:center">Especie</th>
+          <th style=" text-align:center">Raza</th>
+          <th style="text-align:center">Fecha Nacimiento</th>
+          <th style=" text-align:center">Tipo Id</th>
+          <th style="text-align:center">Ide Dueño</th>
+          <th style=" text-align:center">Nombre Dueño</th>
+          <th style="text-align:center">Ciudad</th>
+          <th style=" text-align:center">Dirección</th>
+          <th style="text-align:center">Telefono</th>
+          <th style=" text-align:center">Fecha Registro</th>
+          <th style=" text-align:center; width: 250px;">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="text-align:center;" *ngFor="let item of datosPatients| patients:filterPost">
+          <td style=" margin-top: 3%;">{{ item.nmid }}</td>
+          <td style="margin-top: 3%;">{{ item.nomespecie }}</td>
+          <td style="margin-top: 3%;">{{ item.especie }}</td>
+          <td style="margin-top: 3%;">{{ item.raza }}</td>
+          <td style="margin-top: 3%;">{{ item.fechanaci }}</td>
+          <td style="margin-top: 3%;">{{ item.tipoid }}</td>
+          <td style="margin-top: 3%;">{{ item.iddue }}</td>
+          <td style="margin-top: 3%;">{{ item.nomdue }}</td>
+          <td style="margin-top: 3%;">{{ item.ciudad }}</td>
+          <td style="margin-top: 3%;">{{ item.direccion }}</td>
+          <td style="margin-top: 3%;">{{ item.telefono }}</td>
+          <td style="margin-top: 3%;">{{ item.fecharegis }}</td>
+          <td>
+            <button title="Editar" class="edit" mat-icon (click)="editar(item)" (click)="openedid(content)">
+              <mat-icon id="icon-button">edit</mat-icon>
+            </button>
+
+            <button title="Eliminar" class="delete" (click)="eliminar(item.nmid)">
+              <mat-icon id="icon-button">delete</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
