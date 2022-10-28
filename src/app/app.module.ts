@@ -14,7 +14,7 @@ import { PatientsComponent } from './patients/patients.component';
 
 import { ModalModule } from 'ngb-modal';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { PatientsPipe } from './pipes/patients.pipe';
+import { PatientsPipe } from './filtros/patients.pipe';
 
 
 @NgModule({
