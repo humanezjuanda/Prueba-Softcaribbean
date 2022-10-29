@@ -1,26 +1,23 @@
 <div class="login">
     <form [formGroup]="myForm" (ngSubmit)="submit()" class="custom-form" method="post" errorTailor>
-        <h1>Login</h1>
-        <ng-template let-error let-text="text" #Error>
-            <!-- {{error|json}}{{text}} -->
+        <h1>
+            Iniciar sesión</h1>
 
+        <ng-template let-error let-text="text" #Error>
             <div *ngIf="error?.minlength">
                 <i> <b>Error:</b>No comples con los caracteres minomos que son
                     ({{error?.minlength?.requiredLength}}),ingresaste
                     solo:({{error?.minlength?.actualLength}})</i>
             </div>
         </ng-template>
+
         <div>
-
             <input type="text" formControlName="usuario" placeholder="Usuario" [controlErrorsTpl]="Error" />
-
         </div>
         <div>
             <input type="password" formControlName="password" name="password" placeholder="Password"
-                [controlErrorsTpl]="Error" />
-            <div>
+                [controlErrorsTpl]="Error">
 
-            </div>
         </div>
         <button class="login" type="submit" (click)="login()">Inicio</button>
     </form>

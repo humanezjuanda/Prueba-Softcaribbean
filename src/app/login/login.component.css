@@ -44,7 +44,8 @@ h1 {
     letter-spacing: 0.15em;
     border: none;
     font-size: 0.875rem;
-    color: #2696ce;
+    border-color: rgba(71, 115, 178, 255);
+    color: rgba(71, 115, 178, 255);
     font-weight: bold;
     background-color: #06b2f0;
     width: 100%;

@@ -95,57 +95,64 @@
     </div>
   </form>
 </ng-template>
-<h1 id="titulo">Administrador de pacientes</h1><br>
-<input class="from_control" id="filter" type="text" placeholder="Buscar..." [(ngModel)]="filterPost" name="filterPosts">
-<button class="lanzar" mat-icon (click)="open(content)" mat-list-item>
-  Nuevo
-</button>
-<button title="Exportar exel" class="export" (click)="exportexcel()">Exportar</button>
 <div>
-  <div class="table-responsive-md">
-    <table id="table" class="table">
-      <thead>
-        <tr>
-          <th style="text-align:center">Id</th>
-          <th style=" text-align:center">Nombre Especie</th>
-          <th style="text-align:center">Especie</th>
-          <th style=" text-align:center">Raza</th>
-          <th style="text-align:center">Fecha Nacimiento</th>
-          <th style=" text-align:center">Tipo Id</th>
-          <th style="text-align:center">Ide Dueño</th>
-          <th style=" text-align:center">Nombre Dueño</th>
-          <th style="text-align:center">Ciudad</th>
-          <th style=" text-align:center">Dirección</th>
-          <th style="text-align:center">Telefono</th>
-          <th style=" text-align:center">Fecha Registro</th>
-          <th style=" text-align:center; width: 250px;">Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr style="text-align:center;" *ngFor="let item of datosPatients| patients:filterPost">
-          <td style=" margin-top: 3%;">{{ item.nmid }}</td>
-          <td style="margin-top: 3%;">{{ item.nomespecie }}</td>
-          <td style="margin-top: 3%;">{{ item.especie }}</td>
-          <td style="margin-top: 3%;">{{ item.raza }}</td>
-          <td style="margin-top: 3%;">{{ item.fechanaci }}</td>
-          <td style="margin-top: 3%;">{{ item.tipoid }}</td>
-          <td style="margin-top: 3%;">{{ item.iddue }}</td>
-          <td style="margin-top: 3%;">{{ item.nomdue }}</td>
-          <td style="margin-top: 3%;">{{ item.ciudad }}</td>
-          <td style="margin-top: 3%;">{{ item.direccion }}</td>
-          <td style="margin-top: 3%;">{{ item.telefono }}</td>
-          <td style="margin-top: 3%;">{{ item.fecharegis }}</td>
-          <td>
-            <button title="Editar" class="edit" mat-icon (click)="editar(item)" (click)="openedid(content)">
-              <mat-icon id="icon-button">edit</mat-icon>
-            </button>
+  <h1 id="titulo">Administrador de pacientes</h1><br>
+  <input class="from_control" id="filter" type="text" placeholder="Buscar..." [(ngModel)]="filterPost"
+    name="filterPosts">
+  <button class="lanzar" mat-icon (click)="open(content)" mat-list-item>
 
-            <button title="Eliminar" class="delete" (click)="eliminar(item.nmid)">
-              <mat-icon id="icon-button">delete</mat-icon>
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    <abbr title="Nuevo">
+      <mat-icon id="icon-add">add_circle</mat-icon>
+    </abbr>
+  </button>
+
+  <button title="Exportar exel" class="export" (click)="exportexcel()">Exportar</button>
+</div>
+<div>
+
+  <table id="table" class="table">
+    <thead>
+      <tr>
+        <th style="text-align:center">Id</th>
+        <th style=" text-align:center">Nombre Especie</th>
+        <th style="text-align:center">Especie</th>
+        <th style=" text-align:center">Raza</th>
+        <th style="text-align:center">Fecha Nacimiento</th>
+        <th style=" text-align:center">Tipo Id</th>
+        <th style="text-align:center">Ide Dueño</th>
+        <th style=" text-align:center">Nombre Dueño</th>
+        <th style="text-align:center">Ciudad</th>
+        <th style=" text-align:center">Dirección</th>
+        <th style="text-align:center">Telefono</th>
+        <th style=" text-align:center">Fecha Registro</th>
+        <th style=" text-align:center; width: 250px;">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="text-align:center;" *ngFor="let item of datosPatients| patients:filterPost">
+        <td style=" margin-top: 3%;">{{ item.nmid }}</td>
+        <td style="margin-top: 3%;">{{ item.nomespecie }}</td>
+        <td style="margin-top: 3%;">{{ item.especie }}</td>
+        <td style="margin-top: 3%;">{{ item.raza }}</td>
+        <td style="margin-top: 3%;">{{ item.fechanaci }}</td>
+        <td style="margin-top: 3%;">{{ item.tipoid }}</td>
+        <td style="margin-top: 3%;">{{ item.iddue }}</td>
+        <td style="margin-top: 3%;">{{ item.nomdue }}</td>
+        <td style="margin-top: 3%;">{{ item.ciudad }}</td>
+        <td style="margin-top: 3%;">{{ item.direccion }}</td>
+        <td style="margin-top: 3%;">{{ item.telefono }}</td>
+        <td style="margin-top: 3%;">{{ item.fecharegis }}</td>
+        <td>
+          <button title="Editar" class="edit" mat-icon (click)="editar(item)" (click)="openedid(content)">
+            <mat-icon id="icon-button">edit</mat-icon>
+          </button>
+
+          <button title="Eliminar" class="delete" (click)="eliminar(item.nmid)">
+            <mat-icon id="icon-button">delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
 </div>

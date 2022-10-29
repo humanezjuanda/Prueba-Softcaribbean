@@ -26,9 +26,9 @@ export class PatientsComponent implements OnInit {
   ngOnInit(): void {
     this.myForm = this.fb.group({
       nmid: [''],
-      nomespecie: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
-      especie: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
-      raza: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
+      nomespecie: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
+      especie: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
+      raza: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
       fechanaci: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(10)]],
       tipoid: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
       iddue: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
