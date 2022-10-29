@@ -95,18 +95,31 @@
     </div>
   </form>
 </ng-template>
-<div>
-  <h1 id="titulo">Administrador de pacientes</h1><br>
-  <input class="from_control" id="filter" type="text" placeholder="Buscar..." [(ngModel)]="filterPost"
-    name="filterPosts">
-  <button class="lanzar" mat-icon (click)="open(content)" mat-list-item>
 
-    <abbr title="Nuevo">
-      <mat-icon id="icon-add">add_circle</mat-icon>
-    </abbr>
-  </button>
+<h1 id="titulo">Administrador de pacientes</h1><br>
 
-  <button title="Exportar exel" class="export" (click)="exportexcel()">Exportar</button>
+<div class="row align-items-start">
+  <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <input class="from_control" id="filter" type="text" placeholder="Buscar..." [(ngModel)]="filterPost"
+      name="filterPosts">
+  </div>
+
+  <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <div class="row justify-content-start align-items-lg-end align-items-md-end align-items-sm-end">
+
+      <div class=" col">
+        <button class="btn btn-block btn-primary" (click)="exportexcel()">Exportar</button>
+      </div>
+      <div class="col">
+        <button class="btn btn-block btn-primary" mat-icon (click)="open(content)" mat-list-item>
+          <abbr title="Nuevo">
+            <mat-icon id="icon-add">add_circle</mat-icon>
+          </abbr>
+        </button>
+      </div>
+    </div>
+
+  </div>
 </div>
 <div>
 
